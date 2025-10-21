@@ -1,7 +1,7 @@
 const PREVIEW_SECRET = process.env.PREVIEW_WEBHOOK_SECRET || '';
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
-const GITHUB_OWNER = process.env.GITHUB_OWNER || '';
-const GITHUB_REPO = process.env.GITHUB_REPO || '';
+const GITHUB_TOKEN = process.env.GH_TOKEN || '';
+const GITHUB_OWNER = process.env.GH_OWNER || '';
+const GITHUB_REPO = process.env.GH_REPO || '';
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
