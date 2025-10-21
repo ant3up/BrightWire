@@ -281,7 +281,7 @@ export function HomePage({ onNavigate, onServiceSelect }: HomePageProps) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-[#1E2A31] mb-6" style={{ fontWeight: 700, fontSize: '2.5rem' }}>
-                Why Choose BrightWire?
+                Why Choose {COMPANY_INFO.name}?
               </h2>
               <p className="text-gray-600 mb-8" style={{ fontSize: '1.125rem' }}>
                 We're Sydney's trusted electrical experts, committed to safety, quality, and customer satisfaction.

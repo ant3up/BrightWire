@@ -267,7 +267,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
             Ready to Work With Us?
           </h2>
           <p className="text-blue-100 mb-10 max-w-2xl mx-auto" style={{ fontSize: '1.25rem' }}>
-            Experience the BrightWire difference. Professional, reliable electrical services you can trust.
+            Experience the {COMPANY_INFO.name} difference. Professional, reliable electrical services you can trust.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

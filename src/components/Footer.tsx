@@ -18,7 +18,7 @@ export function Footer({ onNavigate }: FooterProps) {
               </div>
               <div className="flex flex-col items-start">
                 <span className="text-white" style={{ fontWeight: 700, fontSize: '1.25rem', lineHeight: 1.2 }}>
-                  BrightWire
+                  {COMPANY_INFO.name}
                 </span>
                 <span className="text-gray-400" style={{ fontSize: '0.75rem', lineHeight: 1 }}>
                   Electrical
