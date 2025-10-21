@@ -27,5 +27,9 @@ export const COMPANY_INFO = {
     href: "tel:0412345678"
   },
   address: "123 Main Street, Melbourne VIC 3000",
-  suburb: "Melbourne"
+  suburb: "Melbourne",
+  hours: {
+    weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
+    weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
+  }
 } as const;
