@@ -22,7 +22,10 @@ export const BUSINESS_INFO = {
 // Export for existing code compatibility
 export const COMPANY_INFO = {
   name: "BrightWire Electrical",
-  phone: "0412 345 678",
+  phone: {
+    display: "0412 345 678",
+    href: "tel:0412345678"
+  },
   address: "123 Main Street, Melbourne VIC 3000",
   suburb: "Melbourne"
 } as const;
