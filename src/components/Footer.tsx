@@ -20,9 +20,6 @@ export function Footer({ onNavigate }: FooterProps) {
                 <span className="text-white" style={{ fontWeight: 700, fontSize: '1.25rem', lineHeight: 1.2 }}>
                   {COMPANY_INFO.name}
                 </span>
-                <span className="text-gray-400" style={{ fontSize: '0.75rem', lineHeight: 1 }}>
-                  Electrical
-                </span>
               </div>
             </div>
             <p className="text-gray-400 mb-4" style={{ fontSize: '0.875rem' }}>
