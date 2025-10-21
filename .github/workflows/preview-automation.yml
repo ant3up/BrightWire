@@ -1,0 +1,56 @@
+name: Preview Automation
+
+on:
+  repository_dispatch:
+    types: [preview-request]
+  workflow_dispatch:
+    inputs:
+      rowIndex:
+        description: 'Row index to process (optional)'
+        required: false
+        type: string
+      business_name:
+        description: 'Business name to process (optional)'
+        required: false
+        type: string
+
+jobs:
+  create-preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run preview automation
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_OWNER: ${{ github.repository_owner }}
+        GITHUB_REPO: ${{ github.event.repository.name }}
+        GITHUB_BASE_BRANCH: main
+        SITE_FILE_PATHS: '["public/site-config.json","src/config/site.json","src/config/constants.ts"]'
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
+        GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+        GOOGLE_WORKSHEET_NAME: ${{ secrets.GOOGLE_WORKSHEET_NAME || 'Sheet1' }}
+        SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
+      run: |
+        if [ -n "${{ github.event.inputs.rowIndex }}" ]; then
+          node scripts/createPreviewBranches.js --limit=1 --rowIndex=${{ github.event.inputs.rowIndex }}
+        elif [ -n "${{ github.event.inputs.business_name }}" ]; then
+          node scripts/createPreviewBranches.js --limit=1 --businessName="${{ github.event.inputs.business_name }}"
+        else
+          node scripts/createPreviewBranches.js
+        fi
