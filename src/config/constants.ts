@@ -1,33 +1,33 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "Blue Mountains Auto Electrical Pty Ltd",
+  PHONE: "+61247824880",
+  ADDRESS: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
+  SUBURB: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
+  DESCRIPTION: "Professional electrical services for Blue Mountains Auto Electrical Pty Ltd",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "+61247824880",
+    address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
+    suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "Blue Mountains Auto Electrical Pty Ltd",
+  phone: "+61247824880",
+  address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
+  suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
+  name: "Blue Mountains Auto Electrical Pty Ltd",
   phone: {
-    display: "{{PHONE}}",
-    href: "tel:{{PHONE_CLEAN}}"
+    display: "+61247824880",
+    href: "tel:61247824880"
   },
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}",
+  address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
+  suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
   hours: {
     weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
     weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
