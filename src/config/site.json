@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Elevated Services - Electrical Services",
+    "description": "Professional electrical services for Elevated Services",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61450903942",
+      "address": "Faulconbridge NSW 2776, ",
+      "suburb": "Faulconbridge NSW 2776, "
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Elevated Services",
+      "phone": "+61450903942",
+      "address": "Faulconbridge NSW 2776, "
     }
   }
 }

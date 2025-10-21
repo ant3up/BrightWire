@@ -1,11 +1,11 @@
 {
-  "businessName": "{{BUSINESS_NAME}}",
-  "phone": "{{PHONE}}",
-  "address": "{{ADDRESS}}",
-  "suburb": "{{SUBURB}}",
-  "description": "Professional electrical services for {{BUSINESS_NAME}}",
+  "businessName": "Elevated Services",
+  "phone": "+61450903942",
+  "address": "Faulconbridge NSW 2776, ",
+  "suburb": "Faulconbridge NSW 2776, ",
+  "description": "Professional electrical services for Elevated Services",
   "contactInfo": {
-    "phone": "{{PHONE}}",
-    "address": "{{ADDRESS}}"
+    "phone": "+61450903942",
+    "address": "Faulconbridge NSW 2776, "
   }
 }
