@@ -1,11 +1,11 @@
 {
-  "businessName": "{{BUSINESS_NAME}}",
-  "phone": "{{PHONE}}",
-  "address": "{{ADDRESS}}",
-  "suburb": "{{SUBURB}}",
-  "description": "Professional electrical services for {{BUSINESS_NAME}}",
+  "businessName": "Blue Mountains Auto Electrical Pty Ltd",
+  "phone": "+61247824880",
+  "address": "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+  "suburb": "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+  "description": "Professional electrical services for Blue Mountains Auto Electrical Pty Ltd",
   "contactInfo": {
-    "phone": "{{PHONE}}",
-    "address": "{{ADDRESS}}"
+    "phone": "+61247824880",
+    "address": "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia"
   }
 }
