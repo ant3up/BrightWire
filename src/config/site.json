@@ -1,0 +1,16 @@
+{
+  "site": {
+    "title": "{{BUSINESS_NAME}} - Electrical Services",
+    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "contact": {
+      "phone": "{{PHONE}}",
+      "address": "{{ADDRESS}}",
+      "suburb": "{{SUBURB}}"
+    },
+    "business": {
+      "name": "{{BUSINESS_NAME}}",
+      "phone": "{{PHONE}}",
+      "address": "{{ADDRESS}}"
+    }
+  }
+}
