@@ -4,6 +4,9 @@ const PreviewBranchCreator = require('../scripts/createPreviewBranches.js');
 
 const PREVIEW_SECRET = process.env.PREVIEW_WEBHOOK_SECRET || '';
 
+// Allow long running job (up to 15 minutes)
+module.exports.config = { maxDuration: 900 };
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
@@ -17,7 +20,7 @@ module.exports = async (req, res) => {
       return;
     }
 
-    const { rowIndex, business_name } = req.body || {};
+    const { rowIndex, business_name, processAll } = req.body || {};
 
     const creator = new PreviewBranchCreator();
 
@@ -42,8 +45,14 @@ module.exports = async (req, res) => {
       return;
     }
 
-    await creator.run();
-    res.status(200).json({ ok: true });
+    if (processAll === true) {
+      await creator.run();
+      res.status(200).json({ ok: true });
+      return;
+    }
+
+    // Default: require explicit rowIndex/business_name to avoid long executions
+    res.status(400).json({ error: 'Provide rowIndex or business_name, or set processAll=true' });
   } catch (err) {
     res.status(500).json({ error: err?.message || 'Internal error' });
   }
