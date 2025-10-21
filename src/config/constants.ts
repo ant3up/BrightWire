@@ -1,28 +1,28 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "Blue Mountains Auto Electrical Pty Ltd",
+  PHONE: "+61247824880",
+  ADDRESS: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+  SUBURB: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+  DESCRIPTION: "Professional electrical services for Blue Mountains Auto Electrical Pty Ltd",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "+61247824880",
+    address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+    suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "Blue Mountains Auto Electrical Pty Ltd",
+  phone: "+61247824880",
+  address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+  suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "Blue Mountains Auto Electrical Pty Ltd",
+  phone: "+61247824880",
+  address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia",
+  suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780, Australia"
 } as const;
