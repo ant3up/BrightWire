@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Hoang Electrician - Electrical Services",
+    "description": "Professional electrical services for Hoang Electrician",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "61488899789",
+      "address": "123 Main St, Sydney NSW 2000",
+      "suburb": "123 Main St, Sydney NSW 2000"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Hoang Electrician",
+      "phone": "61488899789",
+      "address": "123 Main St, Sydney NSW 2000"
     }
   }
 }

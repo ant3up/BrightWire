@@ -1,11 +1,11 @@
 {
-  "businessName": "{{BUSINESS_NAME}}",
-  "phone": "{{PHONE}}",
-  "address": "{{ADDRESS}}",
-  "suburb": "{{SUBURB}}",
-  "description": "Professional electrical services for {{BUSINESS_NAME}}",
+  "businessName": "Hoang Electrician",
+  "phone": "61488899789",
+  "address": "123 Main St, Sydney NSW 2000",
+  "suburb": "123 Main St, Sydney NSW 2000",
+  "description": "Professional electrical services for Hoang Electrician",
   "contactInfo": {
-    "phone": "{{PHONE}}",
-    "address": "{{ADDRESS}}"
+    "phone": "61488899789",
+    "address": "123 Main St, Sydney NSW 2000"
   }
 }
