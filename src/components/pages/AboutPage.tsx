@@ -3,6 +3,7 @@ import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { Badge } from '../ui/badge';
+import { COMPANY_INFO } from '../../config/constants';
 import aboutHeaderImage from 'figma:asset/d9d9edd909914a0f5d37d5ffebb8245f55567c6d.png';
 
 interface AboutPageProps {
@@ -56,7 +57,7 @@ export function AboutPage({ onNavigate }: AboutPageProps) {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-white mb-6" style={{ fontWeight: 700, fontSize: '3rem' }}>
-                About BrightWire Electrical
+                About {COMPANY_INFO.name}
               </h1>
               <p className="text-blue-100 mb-6" style={{ fontSize: '1.25rem', lineHeight: 1.6 }}>
                 We're Sydney's trusted electrical experts, committed to delivering safe, reliable, and professional electrical services to homes and businesses across the city.

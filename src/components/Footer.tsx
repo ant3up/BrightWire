@@ -123,7 +123,7 @@ export function Footer({ onNavigate }: FooterProps) {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400" style={{ fontSize: '0.875rem' }}>
-            © 2025 BrightWire Electrical. All rights reserved. ABN: 12 345 678 901
+            © 2025 {COMPANY_INFO.name}. All rights reserved. ABN: 12 345 678 901
           </p>
           <div className="flex gap-6">
             <button className="text-gray-400 hover:text-[#FFCC00] transition-colors" style={{ fontSize: '0.875rem' }}>

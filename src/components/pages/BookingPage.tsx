@@ -300,7 +300,7 @@ export function BookingPage({ onNavigate }: BookingPageProps) {
                       className="mt-1"
                     />
                     <Label htmlFor="consent" className="cursor-pointer" style={{ fontSize: '0.875rem', fontWeight: 400 }}>
-                      I consent to BrightWire Electrical contacting me about my enquiry. We respect your privacy and will never share your details.
+                      I consent to {COMPANY_INFO.name} contacting me about my enquiry. We respect your privacy and will never share your details.
                     </Label>
                   </div>
 

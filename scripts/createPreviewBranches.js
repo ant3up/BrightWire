@@ -242,24 +242,29 @@ class PreviewBranchCreator {
       // Create new branch
       await this.github.createBranch(branchName, baseSha);
 
-      // Update site files with business data
+      // Update site files with business data (batch update)
+      console.log(`📝 Updating ${this.siteFilePaths.length} files for ${business.business_name}`);
+      
+      const filesToUpdate = [];
       for (const filePath of this.siteFilePaths) {
-        console.log(`📝 Updating file: ${filePath}`);
-        
         // Read original file content
         const originalContent = await this.github.getFileContent(filePath, this.github.baseBranch);
         
         // Replace placeholders
         const updatedContent = this.replacePlaceholders(originalContent, business);
         
-        // Update file on new branch
-        await this.github.createOrUpdateFileOnBranch(
-          filePath,
-          updatedContent,
-          branchName,
-          `Update ${filePath} for ${business.business_name} preview`
-        );
+        filesToUpdate.push({
+          path: filePath,
+          content: updatedContent
+        });
       }
+      
+      // Update all files in a single commit
+      await this.github.updateMultipleFiles(
+        filesToUpdate,
+        branchName,
+        `Update template files for ${business.business_name} preview`
+      );
 
       // Wait for Vercel deployment
       console.log(`⏳ Waiting for Vercel deployment...`);
