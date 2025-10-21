@@ -1,33 +1,33 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "BrightWire Electrical",
+  PHONE: "0412 345 678",
+  ADDRESS: "123 Main Street, Melbourne VIC 3000",
+  SUBURB: "Melbourne",
+  DESCRIPTION: "Professional electrical services for BrightWire Electrical",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "0412 345 678",
+    address: "123 Main Street, Melbourne VIC 3000",
+    suburb: "Melbourne"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "BrightWire Electrical",
+  phone: "0412 345 678",
+  address: "123 Main Street, Melbourne VIC 3000",
+  suburb: "Melbourne"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
+  name: "BrightWire Electrical",
   phone: {
-    display: "{{PHONE}}",
-    href: "tel:{{PHONE_CLEAN}}"
+    display: "0412 345 678",
+    href: "tel:0412345678"
   },
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}",
+  address: "123 Main Street, Melbourne VIC 3000",
+  suburb: "Melbourne",
   hours: {
     weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
     weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
