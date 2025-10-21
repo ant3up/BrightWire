@@ -153,12 +153,12 @@ export function HomePage({ onNavigate, onServiceSelect }: HomePageProps) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#0B4A6F] transition-all duration-200"
+                  className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-[#0B4A6F] transition-all duration-200"
                   asChild
                 >
                   <a href={COMPANY_INFO.phone.href} className="flex items-center justify-center gap-2 text-white hover:text-[#0B4A6F] transition-colors duration-200">
                     <Phone className="w-5 h-5" />
-                    <span className="font-semibold">Call Now — {COMPANY_INFO.phone.display}</span>
+                    <span className="font-semibold text-white">Call Now — {COMPANY_INFO.phone.display}</span>
                   </a>
                 </Button>
               </div>
@@ -389,12 +389,12 @@ export function HomePage({ onNavigate, onServiceSelect }: HomePageProps) {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#0B4A6F] transition-all duration-200"
+              className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-[#0B4A6F] transition-all duration-200"
               asChild
             >
               <a href={COMPANY_INFO.phone.href} className="flex items-center gap-2 text-white hover:text-[#0B4A6F] transition-colors duration-200">
                 <Phone className="w-5 h-5" />
-                <span className="font-semibold">Call Now — {COMPANY_INFO.phone.display}</span>
+                <span className="font-semibold text-white">Call Now — {COMPANY_INFO.phone.display}</span>
               </a>
             </Button>
           </div>
