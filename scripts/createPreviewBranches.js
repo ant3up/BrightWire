@@ -84,9 +84,13 @@ class PreviewBranchCreator {
    * @returns {string} Content with placeholders replaced
    */
   replacePlaceholders(content, business) {
+    // Clean phone number for tel: links (remove spaces, +, -, etc.)
+    const phoneClean = (business.phone || '').replace(/[\s+\-\(\)]/g, '');
+    
     return content
       .replace(/\{\{BUSINESS_NAME\}\}/g, business.business_name || '')
       .replace(/\{\{PHONE\}\}/g, business.phone || '')
+      .replace(/\{\{PHONE_CLEAN\}\}/g, phoneClean)
       .replace(/\{\{ADDRESS\}\}/g, business.address || '')
       .replace(/\{\{SUBURB\}\}/g, business.address || ''); // Use address for suburb placeholder
   }

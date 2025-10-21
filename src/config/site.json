@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "BrightWire Electrical - Electrical Services",
-    "description": "Professional electrical services for BrightWire Electrical",
+    "title": "{{BUSINESS_NAME}} - Electrical Services",
+    "description": "Professional electrical services for {{BUSINESS_NAME}}",
     "contact": {
-      "phone": "0412 345 678",
-      "address": "123 Main Street, Melbourne VIC 3000",
-      "suburb": "Melbourne"
+      "phone": "{{PHONE}}",
+      "address": "{{ADDRESS}}",
+      "suburb": "{{SUBURB}}"
     },
     "business": {
-      "name": "BrightWire Electrical",
-      "phone": "0412 345 678",
-      "address": "123 Main Street, Melbourne VIC 3000"
+      "name": "{{BUSINESS_NAME}}",
+      "phone": "{{PHONE}}",
+      "address": "{{ADDRESS}}"
     }
   }
 }
