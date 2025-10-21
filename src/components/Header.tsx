@@ -3,7 +3,6 @@ import { Menu, X, Phone, Zap } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { COMPANY_INFO } from '../config/constants';
-import logoImage from '../assets/Logo.png';
 
 interface HeaderProps {
   currentPage: string;
@@ -49,11 +48,9 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
-            <img
-              src={logoImage}
-              alt="BrightWire Electrical Logo"
-              className="h-12 w-auto"
-            />
+            <div className="w-12 h-12 bg-gradient-to-br from-[#0B4A6F] to-[#09324D] rounded-lg flex items-center justify-center">
+              <Zap className="w-6 h-6 text-[#FFCC00]" />
+            </div>
             <div className="flex flex-col items-start">
               <span className="text-[#0B4A6F]" style={{ fontWeight: 700, fontSize: '1.25rem', lineHeight: 1.2 }}>
                 BrightWire
