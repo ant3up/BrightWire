@@ -301,9 +301,7 @@ class PreviewBranchCreator {
     try {
       // Parse command line arguments
       const args = this.parseCommandLineArgs();
-      const limit = args.limit || 10;
-      
-      console.log(`🎯 Processing up to ${limit} businesses`);
+      const limit = args.limit; // Only use limit if specified
 
       // Read data from Excel file or Google Sheets
       const businesses = await this.readData();
@@ -322,8 +320,14 @@ class PreviewBranchCreator {
         return;
       }
 
-      // Process businesses (up to limit)
-      const businessesToProcess = eligibleBusinesses.slice(0, limit);
+      // Process all eligible businesses or limit if specified
+      const businessesToProcess = limit ? eligibleBusinesses.slice(0, limit) : eligibleBusinesses;
+      
+      if (limit) {
+        console.log(`🎯 Processing up to ${limit} businesses`);
+      } else {
+        console.log(`🎯 Processing all ${businessesToProcess.length} eligible businesses`);
+      }
       const results = [];
       
       for (let i = 0; i < businessesToProcess.length; i++) {
