@@ -18,3 +18,11 @@ export const BUSINESS_INFO = {
   address: "{{ADDRESS}}",
   suburb: "{{SUBURB}}"
 } as const;
+
+// Export for existing code compatibility
+export const COMPANY_INFO = {
+  name: "{{BUSINESS_NAME}}",
+  phone: "{{PHONE}}",
+  address: "{{ADDRESS}}",
+  suburb: "{{SUBURB}}"
+} as const;
