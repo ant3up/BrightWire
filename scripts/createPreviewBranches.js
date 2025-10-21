@@ -87,12 +87,24 @@ class PreviewBranchCreator {
     // Clean phone number for tel: links (remove spaces, +, -, etc.)
     const phoneClean = (business.phone || '').replace(/[\s+\-\(\)]/g, '');
     
-    // Remove "Electrical" from the business name (case-insensitive)
-    const businessNameWithoutElectrical = (business.business_name || '').replace(/ Electrical/gi, '').trim();
+    // Display phone formatter: 0450 903 942 (AU mobile style)
+    const phoneDigits = (business.phone || '').replace(/\D/g, '');
+    let phoneDisplay = business.phone || '';
+    if (phoneDigits.length === 10 && phoneDigits.startsWith('04')) {
+      phoneDisplay = `${phoneDigits.slice(0, 4)} ${phoneDigits.slice(4, 7)} ${phoneDigits.slice(7)}`;
+    } else if (phoneDigits.length === 11 && phoneDigits.startsWith('614')) {
+      // Convert +61 4xx xxx xxx → 04xx xxx xxx
+      const local = `0${phoneDigits.slice(2)}`;
+      phoneDisplay = `${local.slice(0, 4)} ${local.slice(4, 7)} ${local.slice(7)}`;
+    }
+    
+    // Use the business name exactly as provided in the sheet
+    const businessNameSanitized = (business.business_name || '').trim();
     
     return content
-      .replace(/\{\{BUSINESS_NAME\}\}/g, businessNameWithoutElectrical)
+      .replace(/\{\{BUSINESS_NAME\}\}/g, businessNameSanitized)
       .replace(/\{\{PHONE\}\}/g, business.phone || '')
+      .replace(/\{\{PHONE_DISPLAY\}\}/g, phoneDisplay)
       .replace(/\{\{PHONE_CLEAN\}\}/g, phoneClean)
       .replace(/\{\{ADDRESS\}\}/g, business.address || '')
       .replace(/\{\{SUBURB\}\}/g, business.address || ''); // Use address for suburb placeholder
@@ -171,23 +183,29 @@ class PreviewBranchCreator {
     try {
       console.log(`💾 Writing updated data to Google Sheets`);
       
-      // For Google Sheets, we need to update each row individually
-      // since we can't replace the entire sheet easily
+      // Update only rows that have changes to avoid clearing other rows
+      // and to reduce API usage/quota.
+      let updated = 0;
       for (let i = 0; i < data.length; i++) {
         const row = data[i];
-        if (row.id) {
-          // Update existing row by ID
-          await this.googleSheets.updateRow(parseInt(row.id), {
-            preview_url: row.preview_url || '',
-            branch: row.branch || '',
-            status: row.status || '',
-            deployedAt: row.deployedAt || '',
-            error: row.error || ''
-          });
+        const hasChange = Boolean(row.preview_url || row.branch || row.status || row.deployedAt || row.error);
+        if (!hasChange) {
+          continue;
         }
+
+        const ok = await this.googleSheets.updateRow(i + 1, {
+          preview_url: row.preview_url || '',
+          branch: row.branch || '',
+          status: row.status || '',
+          deployedAt: row.deployedAt || '',
+          error: row.error || ''
+        });
+        if (ok) updated++;
+        // Gentle throttle to avoid Google Sheets 429 per-minute limits
+        await new Promise(resolve => setTimeout(resolve, 150));
       }
       
-      console.log(`✅ Updated Google Sheets with ${data.length} rows`);
+      console.log(`✅ Updated ${updated} Google Sheets rows`);
     } catch (error) {
       console.error(`❌ Failed to write Google Sheets:`, error.message);
       throw error;
@@ -416,5 +434,6 @@ if (require.main === module) {
     process.exit(1);
   });
 }
-
+// Export class for programmatic use (e.g., serverless API)
+module.exports = PreviewBranchCreator;
 module.exports = PreviewBranchCreator;

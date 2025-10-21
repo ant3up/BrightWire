@@ -23,7 +23,7 @@ export const BUSINESS_INFO = {
 export const COMPANY_INFO = {
   name: "{{BUSINESS_NAME}}",
   phone: {
-    display: "{{PHONE}}",
+    display: "{{PHONE_DISPLAY}}",
     href: "tel:{{PHONE_CLEAN}}"
   },
   address: "{{ADDRESS}}",
