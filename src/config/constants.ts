@@ -1,10 +1,10 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "Blue Mountains Auto Electrical Pty Ltd",
+  BUSINESS_NAME: "Blue Mountains Auto Pty Ltd",
   PHONE: "+61247824880",
   ADDRESS: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
   SUBURB: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
-  DESCRIPTION: "Professional electrical services for Blue Mountains Auto Electrical Pty Ltd",
+  DESCRIPTION: "Professional electrical services for Blue Mountains Auto Pty Ltd",
   CONTACT_INFO: {
     phone: "+61247824880",
     address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "Blue Mountains Auto Electrical Pty Ltd",
+  name: "Blue Mountains Auto Pty Ltd",
   phone: "+61247824880",
   address: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780",
   suburb: "Unit 1/62 Woodlands Rd, Katoomba NSW 2780"
@@ -21,7 +21,7 @@ export const BUSINESS_INFO = {
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "Blue Mountains Auto Electrical Pty Ltd",
+  name: "Blue Mountains Auto Pty Ltd",
   phone: {
     display: "+61247824880",
     href: "tel:61247824880"

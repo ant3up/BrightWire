@@ -53,10 +53,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
             </div>
             <div className="flex flex-col items-start">
               <span className="text-[#0B4A6F]" style={{ fontWeight: 700, fontSize: '1.25rem', lineHeight: 1.2 }}>
-                BrightWire
-              </span>
-              <span className="text-[#6B7280]" style={{ fontSize: '0.75rem', lineHeight: 1 }}>
-                Electrical
+                {COMPANY_INFO.name}
               </span>
             </div>
           </button>
