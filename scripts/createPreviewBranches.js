@@ -200,6 +200,14 @@ class PreviewBranchCreator {
           continue;
         }
 
+        console.log(`📝 Updating row ${i + 1} with data:`, {
+          preview_url: row.preview_url || '',
+          branch: row.branch || '',
+          triggered: row.triggered || '',
+          deployedAt: row.deployedAt || '',
+          Error: row.error || ''
+        });
+        
         const ok = await this.googleSheets.updateRow(i + 1, {
           preview_url: row.preview_url || '',
           branch: row.branch || '',
