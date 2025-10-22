@@ -1,5 +1,8 @@
 name: Preview Automation
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
     types: [preview-request]
