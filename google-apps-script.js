@@ -15,7 +15,7 @@
 
 // Configuration - Update these values
 const WEBHOOK_URL = 'https://brightwire-electrical-website.vercel.app/api/preview';
-const WEBHOOK_SECRET = '7ba1be77753b4b91cf8623de7e6ad608d6e163cb42839b2fbffd31aca562a225';
+const WEBHOOK_SECRET = 'YOUR_ACTUAL_WEBHOOK_SECRET_HERE'; // Replace with your actual secret
 
 // Column mapping - adjust if your sheet has different column positions
 const COLUMNS = {
@@ -35,13 +35,18 @@ const COLUMNS = {
  */
 function onEdit(e) {
   try {
+    console.log('onEdit triggered:', e);
     const range = e.range;
     const sheet = e.source.getActiveSheet();
+    
+    console.log(`Edit detected - Column: ${range.getColumn()}, Row: ${range.getRow()}, Value: ${range.getValue()}`);
     
     // Only process if the edit is in the wants_preview column
     if (range.getColumn() === COLUMNS.WANTS_PREVIEW) {
       const row = range.getRow();
       const value = range.getValue();
+      
+      console.log(`Wants preview column edited - Row: ${row}, Value: "${value}"`);
       
       // Only trigger if wants_preview is set to "yes"
       if (value && value.toString().toLowerCase().trim() === 'yes') {
@@ -51,10 +56,17 @@ function onEdit(e) {
         const businessData = getBusinessData(sheet, row);
         
         if (businessData) {
+          console.log('Business data found:', businessData);
           // Trigger the webhook
           triggerPreviewGeneration(row, businessData);
+        } else {
+          console.log('No business data found for row', row);
         }
+      } else {
+        console.log('Value is not "yes", skipping trigger');
       }
+    } else {
+      console.log(`Edit not in wants_preview column (${COLUMNS.WANTS_PREVIEW}), ignoring`);
     }
   } catch (error) {
     console.error('Error in onEdit:', error);
@@ -97,6 +109,8 @@ function getBusinessData(sheet, row) {
 function triggerPreviewGeneration(rowIndex, businessData) {
   try {
     console.log(`Triggering preview for: ${businessData.business_name}`);
+    console.log(`Webhook URL: ${WEBHOOK_URL}`);
+    console.log(`Webhook Secret: ${WEBHOOK_SECRET.substring(0, 10)}...`);
     
     const payload = {
       rowIndex: rowIndex,
@@ -104,6 +118,8 @@ function triggerPreviewGeneration(rowIndex, businessData) {
       phone: businessData.phone,
       address: businessData.address
     };
+    
+    console.log('Payload:', payload);
     
     const options = {
       method: 'POST',
@@ -114,16 +130,26 @@ function triggerPreviewGeneration(rowIndex, businessData) {
       payload: JSON.stringify(payload)
     };
     
+    console.log('Making webhook request...');
     const response = UrlFetchApp.fetch(WEBHOOK_URL, options);
-    const responseData = JSON.parse(response.getContentText());
+    const responseCode = response.getResponseCode();
+    const responseText = response.getContentText();
     
-    console.log('Webhook response:', responseData);
+    console.log(`Webhook response code: ${responseCode}`);
+    console.log(`Webhook response text: ${responseText}`);
     
-    if (responseData.ok) {
-      // Update status in the sheet
-      updateSheetStatus(rowIndex, 'triggered', 'Preview generation triggered');
+    if (responseCode === 200) {
+      const responseData = JSON.parse(responseText);
+      console.log('Webhook response data:', responseData);
+      
+      if (responseData.ok) {
+        // Update status in the sheet
+        updateSheetStatus(rowIndex, 'triggered', 'Preview generation triggered');
+      } else {
+        throw new Error(responseData.error || 'Unknown webhook error');
+      }
     } else {
-      throw new Error(responseData.error || 'Unknown webhook error');
+      throw new Error(`HTTP ${responseCode}: ${responseText}`);
     }
     
   } catch (error) {
