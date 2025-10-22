@@ -413,10 +413,16 @@ class PreviewBranchCreator {
         const result = await this.processBusiness(business, i);
         results.push(result);
         
-        // Update the original data array
-        const originalIndex = businesses.findIndex(b => b === business);
+        // Update the original data array using business name to find the correct row
+        const originalIndex = businesses.findIndex(b => 
+          b.business_name && business.business_name && 
+          b.business_name.toString().trim() === business.business_name.toString().trim()
+        );
         if (originalIndex !== -1) {
+          console.log(`🔄 Updating original row ${originalIndex + 1} for business: ${business.business_name}`);
           businesses[originalIndex] = result;
+        } else {
+          console.log(`⚠️  Could not find original row for business: ${business.business_name}`);
         }
       }
 
