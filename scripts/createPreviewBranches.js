@@ -241,6 +241,12 @@ class PreviewBranchCreator {
   async processBusiness(business, index) {
     console.log(`\n🏢 Processing business ${index + 1}: ${business.business_name}`);
     
+    // Clear any existing error when retrying
+    if (business.Error && business.Error.toString().trim() !== '') {
+      console.log(`🔄 Retrying business with previous error: ${business.Error}`);
+      business.Error = ''; // Clear the error
+    }
+    
     try {
       // Generate branch name
       const branchName = this.generateBranchName(business.business_name);
