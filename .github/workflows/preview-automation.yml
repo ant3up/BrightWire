@@ -31,7 +31,7 @@ jobs:
     - name: Debug USE_GOOGLE_SHEETS
       run: echo "USE_GOOGLE_SHEETS=${USE_GOOGLE_SHEETS}"
       env:
-        USE_GOOGLE_SHEETS: ${{ vars.USE_GOOGLE_SHEETS }}
+        USE_GOOGLE_SHEETS: ${{ vars.USE_GOOGLE_SHEETS || 'true' }}
         
     - name: Install dependencies
       run: npm install
