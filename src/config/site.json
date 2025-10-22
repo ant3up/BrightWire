@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Always Current Electrical - Electrical Services",
+    "description": "Professional electrical services for Always Current Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61449977226",
+      "address": "10 Alderton Ave, Springwood NSW 2777",
+      "suburb": "10 Alderton Ave, Springwood NSW 2777"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Always Current Electrical",
+      "phone": "+61449977226",
+      "address": "10 Alderton Ave, Springwood NSW 2777"
     }
   }
 }
