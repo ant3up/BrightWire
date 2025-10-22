@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Daluxe Electrical - Electrical Services",
+    "description": "Professional electrical services for Daluxe Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61422406679",
+      "address": "4 Hamilton Pl, Narellan NSW 2567",
+      "suburb": "4 Hamilton Pl, Narellan NSW 2567"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Daluxe Electrical",
+      "phone": "+61422406679",
+      "address": "4 Hamilton Pl, Narellan NSW 2567"
     }
   }
 }
