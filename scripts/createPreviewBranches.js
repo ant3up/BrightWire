@@ -188,7 +188,7 @@ class PreviewBranchCreator {
       let updated = 0;
       for (let i = 0; i < data.length; i++) {
         const row = data[i];
-        const hasChange = Boolean(row.preview_url || row.branch || row.status || row.deployedAt || row.error);
+        const hasChange = Boolean(row.preview_url || row.branch || row.triggered || row.deployedAt || row.error);
         if (!hasChange) {
           continue;
         }
@@ -196,9 +196,9 @@ class PreviewBranchCreator {
         const ok = await this.googleSheets.updateRow(i + 1, {
           preview_url: row.preview_url || '',
           branch: row.branch || '',
-          status: row.status || '',
+          triggered: row.triggered || '',
           deployedAt: row.deployedAt || '',
-          error: row.error || ''
+          Error: row.error || ''
         });
         if (ok) updated++;
         // Gentle throttle to avoid Google Sheets 429 per-minute limits
@@ -251,7 +251,7 @@ class PreviewBranchCreator {
         return {
           ...business,
           branch: branchName,
-          status: 'dry-run',
+          triggered: 'dry-run',
           preview_url: `https://preview-${branchName}.vercel.app`,
           deployedAt: new Date().toISOString()
         };
@@ -296,7 +296,7 @@ class PreviewBranchCreator {
       return {
         ...business,
         branch: branchName,
-        status: 'deployed',
+        triggered: 'deployed',
         preview_url: deployment.url,
         deployedAt: new Date().toISOString()
       };
@@ -305,7 +305,7 @@ class PreviewBranchCreator {
       console.error(`❌ Failed to process business: ${error.message}`);
       return {
         ...business,
-        status: 'failed',
+        triggered: 'failed',
         error: error.message,
         failedAt: new Date().toISOString()
       };
@@ -327,13 +327,13 @@ class PreviewBranchCreator {
       // Filter businesses that want preview and haven't been processed
       const eligibleBusinesses = businesses.filter(business => {
         const wantsPreview = business.wants_preview && business.wants_preview.toString().toLowerCase().trim() === 'yes';
-        const hasStatus = business.status && business.status.toString().trim() !== '';
+        const hasTriggered = business.triggered && business.triggered.toString().trim() !== '';
         const hasPreviewUrl = business.preview_url && business.preview_url.toString().trim() !== '';
         const hasBusinessName = business.business_name && business.business_name.toString().trim() !== '';
         
-        console.log(`Business: ${business.business_name}, wants_preview: ${business.wants_preview}, status: ${business.status}, preview_url: ${business.preview_url}`);
+        console.log(`Business: ${business.business_name}, wants_preview: ${business.wants_preview}, triggered: ${business.triggered}, preview_url: ${business.preview_url}`);
         
-        return wantsPreview && !hasStatus && !hasPreviewUrl && hasBusinessName;
+        return wantsPreview && !hasTriggered && !hasPreviewUrl && hasBusinessName;
       });
 
       console.log(`📋 Found ${eligibleBusinesses.length} eligible businesses`);
@@ -405,9 +405,9 @@ class PreviewBranchCreator {
     console.log('\n📊 SUMMARY');
     console.log('='.repeat(50));
     
-    const deployed = results.filter(r => r.status === 'deployed');
-    const failed = results.filter(r => r.status === 'failed');
-    const dryRun = results.filter(r => r.status === 'dry-run');
+    const deployed = results.filter(r => r.triggered === 'deployed');
+    const failed = results.filter(r => r.triggered === 'failed');
+    const dryRun = results.filter(r => r.triggered === 'dry-run');
     
     console.log(`✅ Successfully deployed: ${deployed.length}`);
     console.log(`❌ Failed: ${failed.length}`);
