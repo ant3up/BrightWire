@@ -69,9 +69,16 @@ class PreviewBranchCreator {
   /**
    * Generate unique branch name
    * @param {string} businessName - The business name
+   * @param {string} existingBranch - Existing branch name if any
    * @returns {string} Unique branch name
    */
-  generateBranchName(businessName) {
+  generateBranchName(businessName, existingBranch = null) {
+    // If we have an existing branch, reuse it
+    if (existingBranch && existingBranch.startsWith('preview/')) {
+      console.log(`🔄 Reusing existing branch: ${existingBranch}`);
+      return existingBranch;
+    }
+    
     const sanitized = this.sanitizeBranchName(businessName);
     const shortId = shortid.generate().toLowerCase();
     return `preview/${sanitized}-${shortId}`;
@@ -248,8 +255,8 @@ class PreviewBranchCreator {
     }
     
     try {
-      // Generate branch name
-      const branchName = this.generateBranchName(business.business_name);
+      // Generate branch name (reuse existing if available)
+      const branchName = this.generateBranchName(business.business_name, business.branch);
       console.log(`🌿 Branch name: ${branchName}`);
 
       if (this.dryRun) {
@@ -266,8 +273,14 @@ class PreviewBranchCreator {
       // Get base branch SHA
       const baseSha = await this.github.getBaseBranchSha();
       
-      // Create new branch
-      await this.github.createBranch(branchName, baseSha);
+      // Check if branch already exists, if not create it
+      const branchExists = await this.github.branchExists(branchName);
+      if (branchExists) {
+        console.log(`✅ Branch already exists: ${branchName}`);
+      } else {
+        console.log(`🌿 Creating new branch: ${branchName}`);
+        await this.github.createBranch(branchName, baseSha);
+      }
 
       // Update site files with business data (batch update)
       console.log(`📝 Updating ${this.siteFilePaths.length} files for ${business.business_name}`);
