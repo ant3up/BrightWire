@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Daddy Electrician - Electrical Services",
+    "description": "Professional electrical services for Daddy Electrician",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61469567377",
+      "address": "3/289 Pennant Hills Rd, Carlingford NSW 2118",
+      "suburb": "3/289 Pennant Hills Rd, Carlingford NSW 2118"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Daddy Electrician",
+      "phone": "+61469567377",
+      "address": "3/289 Pennant Hills Rd, Carlingford NSW 2118"
     }
   }
 }
