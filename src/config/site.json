@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Clinton White Electrical - Electrical Services",
+    "description": "Professional electrical services for Clinton White Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61481195546",
+      "address": "701/10 Norfolk St, Liverpool NSW 2170",
+      "suburb": "701/10 Norfolk St, Liverpool NSW 2170"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Clinton White Electrical",
+      "phone": "+61481195546",
+      "address": "701/10 Norfolk St, Liverpool NSW 2170"
     }
   }
 }
