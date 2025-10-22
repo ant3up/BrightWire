@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Behr - HVAC & Electrical - Electrical Services",
+    "description": "Professional electrical services for Behr - HVAC & Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61296833412",
+      "address": "179 Tizzana Rd, Ebenezer NSW 2756",
+      "suburb": "179 Tizzana Rd, Ebenezer NSW 2756"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Behr - HVAC & Electrical",
+      "phone": "+61296833412",
+      "address": "179 Tizzana Rd, Ebenezer NSW 2756"
     }
   }
 }
