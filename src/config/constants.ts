@@ -1,33 +1,33 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "Always Current Electrical",
+  PHONE: "+61449977226",
+  ADDRESS: "10 Alderton Ave, Springwood NSW 2777",
+  SUBURB: "10 Alderton Ave, Springwood NSW 2777",
+  DESCRIPTION: "Professional electrical services for Always Current Electrical",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "+61449977226",
+    address: "10 Alderton Ave, Springwood NSW 2777",
+    suburb: "10 Alderton Ave, Springwood NSW 2777"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "Always Current Electrical",
+  phone: "+61449977226",
+  address: "10 Alderton Ave, Springwood NSW 2777",
+  suburb: "10 Alderton Ave, Springwood NSW 2777"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
+  name: "Always Current Electrical",
   phone: {
-    display: "{{PHONE_DISPLAY}}",
-    href: "tel:{{PHONE_CLEAN}}"
+    display: "0449 977 226",
+    href: "tel:61449977226"
   },
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}",
+  address: "10 Alderton Ave, Springwood NSW 2777",
+  suburb: "10 Alderton Ave, Springwood NSW 2777",
   hours: {
     weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
     weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
