@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "C.Lewis Electrical Services - Electrical Services",
+    "description": "Professional electrical services for C.Lewis Electrical Services",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61403968312",
+      "address": "276 Woronora Rd, Engadine NSW 2233",
+      "suburb": "276 Woronora Rd, Engadine NSW 2233"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "C.Lewis Electrical Services",
+      "phone": "+61403968312",
+      "address": "276 Woronora Rd, Engadine NSW 2233"
     }
   }
 }
