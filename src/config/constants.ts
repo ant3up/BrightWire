@@ -1,33 +1,33 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "Hoang Electrician",
+  PHONE: "+61488899789",
+  ADDRESS: "123 Main St, Sydney NSW 2000",
+  SUBURB: "123 Main St, Sydney NSW 2000",
+  DESCRIPTION: "Professional electrical services for Hoang Electrician",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "+61488899789",
+    address: "123 Main St, Sydney NSW 2000",
+    suburb: "123 Main St, Sydney NSW 2000"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "Hoang Electrician",
+  phone: "+61488899789",
+  address: "123 Main St, Sydney NSW 2000",
+  suburb: "123 Main St, Sydney NSW 2000"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
+  name: "Hoang Electrician",
   phone: {
-    display: "{{PHONE_DISPLAY}}",
-    href: "tel:{{PHONE_CLEAN}}"
+    display: "0488 899 789",
+    href: "tel:61488899789"
   },
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}",
+  address: "123 Main St, Sydney NSW 2000",
+  suburb: "123 Main St, Sydney NSW 2000",
   hours: {
     weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
     weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
