@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Be Connected Electrical Services NSW - Electrical Services",
+    "description": "Professional electrical services for Be Connected Electrical Services NSW",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61411168385",
+      "address": "102 Bellinger Rd, Ruse NSW 2560",
+      "suburb": "102 Bellinger Rd, Ruse NSW 2560"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Be Connected Electrical Services NSW",
+      "phone": "+61411168385",
+      "address": "102 Bellinger Rd, Ruse NSW 2560"
     }
   }
 }

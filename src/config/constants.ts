@@ -1,33 +1,33 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "Be Connected Electrical Services NSW",
+  PHONE: "+61411168385",
+  ADDRESS: "102 Bellinger Rd, Ruse NSW 2560",
+  SUBURB: "102 Bellinger Rd, Ruse NSW 2560",
+  DESCRIPTION: "Professional electrical services for Be Connected Electrical Services NSW",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "+61411168385",
+    address: "102 Bellinger Rd, Ruse NSW 2560",
+    suburb: "102 Bellinger Rd, Ruse NSW 2560"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "Be Connected Electrical Services NSW",
+  phone: "+61411168385",
+  address: "102 Bellinger Rd, Ruse NSW 2560",
+  suburb: "102 Bellinger Rd, Ruse NSW 2560"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
+  name: "Be Connected Electrical Services NSW",
   phone: {
-    display: "{{PHONE_DISPLAY}}",
-    href: "tel:{{PHONE_CLEAN}}"
+    display: "0411 168 385",
+    href: "tel:61411168385"
   },
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}",
+  address: "102 Bellinger Rd, Ruse NSW 2560",
+  suburb: "102 Bellinger Rd, Ruse NSW 2560",
   hours: {
     weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
     weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
