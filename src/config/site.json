@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "ActiVolt Electrical - Electrical Services",
+    "description": "Professional electrical services for ActiVolt Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61451377666",
+      "address": "17 Feldspar Rd, Eagle Vale NSW 2558",
+      "suburb": "17 Feldspar Rd, Eagle Vale NSW 2558"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "ActiVolt Electrical",
+      "phone": "+61451377666",
+      "address": "17 Feldspar Rd, Eagle Vale NSW 2558"
     }
   }
 }
