@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Caps Electrical - Electrical Services",
+    "description": "Professional electrical services for Caps Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61498227997",
+      "address": "10 Lancelot St, Concord NSW 2137",
+      "suburb": "10 Lancelot St, Concord NSW 2137"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Caps Electrical",
+      "phone": "+61498227997",
+      "address": "10 Lancelot St, Concord NSW 2137"
     }
   }
 }
