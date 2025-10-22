@@ -1,33 +1,33 @@
 // Site configuration constants
 export const SITE_CONFIG = {
-  BUSINESS_NAME: "{{BUSINESS_NAME}}",
-  PHONE: "{{PHONE}}",
-  ADDRESS: "{{ADDRESS}}",
-  SUBURB: "{{SUBURB}}",
-  DESCRIPTION: "Professional electrical services for {{BUSINESS_NAME}}",
+  BUSINESS_NAME: "ActiVolt Electrical",
+  PHONE: "+61451377666",
+  ADDRESS: "17 Feldspar Rd, Eagle Vale NSW 2558",
+  SUBURB: "17 Feldspar Rd, Eagle Vale NSW 2558",
+  DESCRIPTION: "Professional electrical services for ActiVolt Electrical",
   CONTACT_INFO: {
-    phone: "{{PHONE}}",
-    address: "{{ADDRESS}}",
-    suburb: "{{SUBURB}}"
+    phone: "+61451377666",
+    address: "17 Feldspar Rd, Eagle Vale NSW 2558",
+    suburb: "17 Feldspar Rd, Eagle Vale NSW 2558"
   }
 } as const;
 
 export const BUSINESS_INFO = {
-  name: "{{BUSINESS_NAME}}",
-  phone: "{{PHONE}}",
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}"
+  name: "ActiVolt Electrical",
+  phone: "+61451377666",
+  address: "17 Feldspar Rd, Eagle Vale NSW 2558",
+  suburb: "17 Feldspar Rd, Eagle Vale NSW 2558"
 } as const;
 
 // Export for existing code compatibility
 export const COMPANY_INFO = {
-  name: "{{BUSINESS_NAME}}",
+  name: "ActiVolt Electrical",
   phone: {
-    display: "{{PHONE_DISPLAY}}",
-    href: "tel:{{PHONE_CLEAN}}"
+    display: "0451 377 666",
+    href: "tel:61451377666"
   },
-  address: "{{ADDRESS}}",
-  suburb: "{{SUBURB}}",
+  address: "17 Feldspar Rd, Eagle Vale NSW 2558",
+  suburb: "17 Feldspar Rd, Eagle Vale NSW 2558",
   hours: {
     weekdays: "Mon-Fri: 7:00 AM - 6:00 PM",
     weekends: "Sat-Sun: 8:00 AM - 4:00 PM"
