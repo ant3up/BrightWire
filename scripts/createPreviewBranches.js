@@ -199,6 +199,12 @@ class PreviewBranchCreator {
         if (!hasChange) {
           continue;
         }
+        
+        // Skip updating rows that are already successfully deployed
+        if (row.triggered === 'deployed') {
+          console.log(`⏭️  Skipping row ${i + 1} - already deployed`);
+          continue;
+        }
 
         console.log(`📝 Updating row ${i + 1} with data:`, {
           preview_url: row.preview_url || '',
