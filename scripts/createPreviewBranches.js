@@ -255,8 +255,14 @@ class PreviewBranchCreator {
     }
     
     try {
+      // First, try to find an existing branch for this business
+      let existingBranch = business.branch;
+      if (!existingBranch || existingBranch.trim() === '') {
+        existingBranch = await this.github.findExistingPreviewBranch(business.business_name);
+      }
+      
       // Generate branch name (reuse existing if available)
-      const branchName = this.generateBranchName(business.business_name, business.branch);
+      const branchName = this.generateBranchName(business.business_name, existingBranch);
       console.log(`🌿 Branch name: ${branchName}`);
 
       if (this.dryRun) {
