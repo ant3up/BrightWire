@@ -325,11 +325,16 @@ class PreviewBranchCreator {
       const businesses = await this.readData();
       
       // Filter businesses that want preview and haven't been processed
-      const eligibleBusinesses = businesses.filter(business => 
-        business.wants_preview === 'yes' && 
-        !business.status &&
-        business.business_name
-      );
+      const eligibleBusinesses = businesses.filter(business => {
+        const wantsPreview = business.wants_preview && business.wants_preview.toString().toLowerCase().trim() === 'yes';
+        const hasStatus = business.status && business.status.toString().trim() !== '';
+        const hasPreviewUrl = business.preview_url && business.preview_url.toString().trim() !== '';
+        const hasBusinessName = business.business_name && business.business_name.toString().trim() !== '';
+        
+        console.log(`Business: ${business.business_name}, wants_preview: ${business.wants_preview}, status: ${business.status}, preview_url: ${business.preview_url}`);
+        
+        return wantsPreview && !hasStatus && !hasPreviewUrl && hasBusinessName;
+      });
 
       console.log(`📋 Found ${eligibleBusinesses.length} eligible businesses`);
       
