@@ -393,6 +393,9 @@ class PreviewBranchCreator {
         // Process if triggered status is 'error' (retry case)
         if (triggered === 'error') return true;
         
+        // Process if triggered status is 'failed' (retry case)
+        if (triggered === 'failed') return true;
+        
         // Process if not triggered yet (new case)
         if (triggered === '') return true;
         
