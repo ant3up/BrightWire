@@ -324,16 +324,32 @@ class PreviewBranchCreator {
       // Read data from Excel file or Google Sheets
       const businesses = await this.readData();
       
-      // Filter businesses that want preview and haven't been processed
+      // Filter businesses that want preview and need processing
       const eligibleBusinesses = businesses.filter(business => {
         const wantsPreview = business.wants_preview && business.wants_preview.toString().toLowerCase().trim() === 'yes';
-        const hasTriggered = business.triggered && business.triggered.toString().trim() !== '';
-        const hasPreviewUrl = business.preview_url && business.preview_url.toString().trim() !== '';
+        const triggered = business.triggered ? business.triggered.toString().trim() : '';
+        const hasError = business.Error && business.Error.toString().trim() !== '';
         const hasBusinessName = business.business_name && business.business_name.toString().trim() !== '';
         
-        console.log(`Business: ${business.business_name}, wants_preview: ${business.wants_preview}, triggered: ${business.triggered}, preview_url: ${business.preview_url}`);
+        console.log(`Business: ${business.business_name}, wants_preview: ${business.wants_preview}, triggered: ${triggered}, Error: ${business.Error}`);
         
-        return wantsPreview && !hasTriggered && !hasPreviewUrl && hasBusinessName;
+        // Skip if no business name
+        if (!hasBusinessName) return false;
+        
+        // Skip if doesn't want preview
+        if (!wantsPreview) return false;
+        
+        // Skip if already deployed successfully
+        if (triggered === 'deployed') return false;
+        
+        // Process if triggered but has error (retry case)
+        if (triggered === 'triggered' && hasError) return true;
+        
+        // Process if not triggered yet (new case)
+        if (triggered === '') return true;
+        
+        // Skip everything else
+        return false;
       });
 
       console.log(`📋 Found ${eligibleBusinesses.length} eligible businesses`);
