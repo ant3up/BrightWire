@@ -27,6 +27,11 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+
+    - name: Debug USE_GOOGLE_SHEETS
+      run: echo "USE_GOOGLE_SHEETS=${USE_GOOGLE_SHEETS}"
+      env:
+        USE_GOOGLE_SHEETS: ${{ vars.USE_GOOGLE_SHEETS }}
         
     - name: Install dependencies
       run: npm install
