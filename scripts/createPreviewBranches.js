@@ -220,7 +220,7 @@ class PreviewBranchCreator {
         });
         if (ok) updated++;
         // Gentle throttle to avoid Google Sheets 429 per-minute limits
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 5000));
       }
       
       console.log(`✅ Updated ${updated} Google Sheets rows`);
