@@ -211,14 +211,23 @@ class PreviewBranchCreator {
           Error: row.error || ''
         });
         
-        const ok = await this.googleSheets.updateRow(i + 1, {
-          preview_url: row.preview_url || '',
-          branch: row.branch || '',
-          triggered: row.triggered || '',
-          deployedAt: row.deployedAt || '',
-          Error: row.error || ''
-        });
-        if (ok) updated++;
+        try {
+          const ok = await this.googleSheets.updateRow(i + 1, {
+            preview_url: row.preview_url || '',
+            branch: row.branch || '',
+            triggered: row.triggered || '',
+            deployedAt: row.deployedAt || '',
+            Error: row.error || ''
+          });
+          if (ok) {
+            updated++;
+            console.log(`✅ Successfully updated row ${i + 1}`);
+          } else {
+            console.log(`⚠️  Failed to update row ${i + 1}`);
+          }
+        } catch (error) {
+          console.error(`❌ Error updating row ${i + 1}:`, error.message);
+        }
         // Gentle throttle to avoid Google Sheets 429 per-minute limits
         await new Promise(resolve => setTimeout(resolve, 5000));
       }
@@ -427,7 +436,15 @@ class PreviewBranchCreator {
       }
 
       // Write results back to Excel or Google Sheets
-      await this.writeData(businesses);
+      console.log(`💾 Writing results back to ${this.useGoogleSheets ? 'Google Sheets' : 'Excel file'}`);
+      try {
+        await this.writeData(businesses);
+        console.log(`✅ Successfully wrote results back to ${this.useGoogleSheets ? 'Google Sheets' : 'Excel file'}`);
+      } catch (error) {
+        console.error(`❌ Failed to write results back:`, error.message);
+        console.error(`❌ Error details:`, error);
+        // Don't exit here, just log the error so we can see what happened
+      }
 
       // Print summary
       this.printSummary(results);
