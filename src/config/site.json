@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "Alfords PT Electrical Contracting - Electrical Services",
+    "description": "Professional electrical services for Alfords PT Electrical Contracting",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61417022212",
+      "address": "45 Brushwood Dr, Alfords Point NSW 2234",
+      "suburb": "45 Brushwood Dr, Alfords Point NSW 2234"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "Alfords PT Electrical Contracting",
+      "phone": "+61417022212",
+      "address": "45 Brushwood Dr, Alfords Point NSW 2234"
     }
   }
 }
