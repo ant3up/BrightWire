@@ -1,16 +1,16 @@
 {
   "site": {
-    "title": "{{BUSINESS_NAME}} - Electrical Services",
-    "description": "Professional electrical services for {{BUSINESS_NAME}}",
+    "title": "CLT Electrical - Electrical Services",
+    "description": "Professional electrical services for CLT Electrical",
     "contact": {
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}",
-      "suburb": "{{SUBURB}}"
+      "phone": "+61457800087",
+      "address": "12 Aberfoyle Pl, Grasmere NSW 2570",
+      "suburb": "12 Aberfoyle Pl, Grasmere NSW 2570"
     },
     "business": {
-      "name": "{{BUSINESS_NAME}}",
-      "phone": "{{PHONE}}",
-      "address": "{{ADDRESS}}"
+      "name": "CLT Electrical",
+      "phone": "+61457800087",
+      "address": "12 Aberfoyle Pl, Grasmere NSW 2570"
     }
   }
 }
