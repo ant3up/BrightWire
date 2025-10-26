@@ -1,0 +1,232 @@
+{
+  "name": "BrightWire Sales Agent - With Contact Outcomes",
+  "model": {
+    "provider": "openai",
+    "model": "gpt-4o",
+    "temperature": 0.7,
+    "maxTokens": 1000
+  },
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceId": "21m00Tcm4TlvDq8ikWAM",
+    "stability": 0.5,
+    "similarityBoost": 0.8
+  },
+  "firstMessage": "Hi there! This is Alex from BrightWire Electrical. I'm calling to see if you'd be interested in a free website preview for your business. Do you have a few minutes to chat?",
+  "systemPrompt": "You are Alex, a friendly BrightWire Electrical sales agent. Your objectives are to: (1) qualify interest in a free website preview, (2) collect business details, and (3) record outcomes accurately.\n\nTOOLS USAGE POLICY:\n- Use record_contact_outcome to log the call result, sentiment, next steps, notes, business name, and phone number as soon as you have enough information. Always call it before ending the call.\n- If the customer agrees to receive a preview (qualified_lead), set next_steps to send_preview. This will automatically set wants_preview to 'yes' in the system.\n- If they request no further contact, set outcome to do_not_call.\n- If the number is invalid, set outcome to wrong_number.\n- Use schedule_follow_up for callbacks, providing when_iso if known.\n- Use send_preview_to_customer only when you already have the preview_url to share.\n\nCONVERSATION GUARDRAILS:\n- Be concise, polite, and professional.\n- Confirm the business name and phone number you dialed.\n- Ask for permission before sending SMS links.\n- If the customer is unsure, offer a callback and schedule_follow_up.\n- Before ending, summarize and then call record_contact_outcome.\n\nEND-OF-CALL CHECKLIST:\n- Did you determine outcome (qualified_lead, not_interested, no_answer, busy, wrong_number, callback_requested, do_not_call)?\n- Did you set next_steps appropriately?\n- Did you call record_contact_outcome?\n\nAlways prefer calling tools over guessing outcomes.",
+  "serverUrl": "https://brightwire-electrical-website.vercel.app/vapi-webhook",
+  "serverUrlSecret": "7ba1be77753b4b91cf8623de7e6ad608d6e163cb42839b2fbffd31aca562a225",
+  "endCallPhrases": [
+    "thank you for your time",
+    "have a great day",
+    "goodbye"
+  ],
+  "maxDurationSeconds": 300,
+  "recordingEnabled": true,
+  "silenceTimeoutSeconds": 5,
+  "responseDelaySeconds": 0.5,
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "record_contact_outcome",
+        "description": "Record the outcome of the contact attempt",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "outcome": {
+              "type": "string",
+              "enum": [
+                "qualified_lead",
+                "not_interested", 
+                "no_answer",
+                "busy",
+                "wrong_number",
+                "callback_requested",
+                "do_not_call"
+              ],
+              "description": "The outcome of the contact attempt"
+            },
+            "sentiment": {
+              "type": "string",
+              "enum": ["positive", "negative", "neutral"],
+              "description": "Customer sentiment during the call"
+            },
+            "interest_level": {
+              "type": "string",
+              "enum": ["high", "medium", "low", "none"],
+              "description": "Level of interest in the service"
+            },
+            "next_steps": {
+              "type": "string",
+              "enum": [
+                "send_preview",
+                "follow_up_call",
+                "send_email",
+                "add_to_campaign",
+                "remove_from_list"
+              ],
+              "description": "Recommended next action"
+            },
+            "notes": {
+              "type": "string",
+              "description": "Additional notes about the conversation"
+            },
+            "business_name": {
+              "type": "string",
+              "description": "Name of the business contacted"
+            },
+            "contact_person": {
+              "type": "string", 
+              "description": "Name of the person spoken to"
+            },
+            "phone_number": {
+              "type": "string",
+              "description": "Phone number that was called"
+            }
+          },
+          "required": ["outcome", "sentiment", "next_steps", "business_name", "phone_number"]
+        }
+      }
+    }
+    ,
+    {
+      "type": "function",
+      "function": {
+        "name": "send_preview_to_customer",
+        "description": "Send the preview URL to the customer's phone via SMS",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "phone_number": { "type": "string", "description": "Customer phone number" },
+            "preview_url": { "type": "string", "description": "Preview URL to send" },
+            "business_name": { "type": "string", "description": "Business name for personalization" }
+          },
+          "required": ["phone_number", "preview_url"]
+        }
+      }
+    }
+    ,
+    {
+      "type": "function",
+      "function": {
+        "name": "schedule_follow_up",
+        "description": "Schedule a follow-up call for a later time",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "phone_number": { "type": "string", "description": "Customer phone number" },
+            "business_name": { "type": "string", "description": "Business name (optional if phone unique)" },
+            "when_iso": { "type": "string", "description": "ISO timestamp for follow-up" }
+          },
+          "required": ["phone_number"]
+        }
+      }
+    }
+    ,
+    {
+      "type": "function",
+      "function": {
+        "name": "mark_do_not_call",
+        "description": "Mark the contact as do not call in the CRM/Sheet",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "phone_number": { "type": "string" },
+            "business_name": { "type": "string" },
+            "notes": { "type": "string" }
+          },
+          "required": []
+        }
+      }
+    }
+    ,
+    {
+      "type": "function",
+      "function": {
+        "name": "mark_wrong_number",
+        "description": "Mark the number as wrong in the CRM/Sheet",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "phone_number": { "type": "string" },
+            "business_name": { "type": "string" }
+          },
+          "required": []
+        }
+      }
+    }
+  ],
+  "endCallFunction": {
+    "type": "function",
+    "function": {
+      "name": "finalize_call_outcome",
+      "description": "Finalize the call outcome with complete details",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "call_summary": {
+            "type": "string",
+            "description": "Complete summary of the call"
+          },
+          "customer_response": {
+            "type": "string",
+            "description": "Key points from customer responses"
+          },
+          "business_info": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "address": {"type": "string"},
+              "phone": {"type": "string"},
+              "website": {"type": "string"},
+              "services": {"type": "string"}
+            }
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "qualified_lead",
+              "not_interested",
+              "no_answer", 
+              "busy",
+              "wrong_number",
+              "callback_requested",
+              "do_not_call"
+            ]
+          },
+          "sentiment": {
+            "type": "string",
+            "enum": ["positive", "negative", "neutral"]
+          },
+          "next_steps": {
+            "type": "string",
+            "enum": [
+              "send_preview",
+              "follow_up_call", 
+              "send_email",
+              "add_to_campaign",
+              "remove_from_list"
+            ]
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes and observations"
+          }
+        },
+        "required": ["call_summary", "outcome", "sentiment", "next_steps"]
+      }
+    }
+  },
+  "metadata": {
+    "description": "BrightWire sales agent with contact outcome recording",
+    "version": "1.0.0",
+    "created": "2024-01-01",
+    "features": [
+      "Contact outcome tracking",
+      "Google Sheets integration", 
+      "Automatic preview generation",
+      "SMS notifications"
+    ]
+  }
+}
